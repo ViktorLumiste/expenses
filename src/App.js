@@ -45,16 +45,32 @@ const App = () => {
     console.log('inside1',expenses[0])
     console.log('inside2',expenses[0].date)
     console.log('inside2',expenses[0].date.toLocaleString('en-US',{day:'2-digit'}))
-    return (
-        <>
-        <div className="App">
-            <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-            <ExpensesFilter onFilterChange={filterExpenseHandler}></ExpensesFilter>
-            <Expenses expenseData={expenses[0]}></Expenses>
-            <Expenses expenseData={expenses[1]}></Expenses>
-        </div>
-        </>
-    );
+    if(expenses.length == 1){
+        return (
+            <>
+                <div className="App">
+                    <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
+                    <ExpensesFilter onFilterChange={filterExpenseHandler}></ExpensesFilter>
+                    <Expenses expenseData={expenses[0]}></Expenses>
+
+                </div>
+            </>
+        );
+    } else if(expenses.length ==2){
+        return (
+            <>
+                <div className="App">
+                    <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
+                    <ExpensesFilter onFilterChange={filterExpenseHandler}></ExpensesFilter>
+                    <Expenses expenseData={expenses[0]}></Expenses>
+                    <Expenses expenseData={expenses[1]}></Expenses>
+                </div>
+            </>
+        );
+    } else {
+        console.log("wtf")
+    }
+
 
 
 }
