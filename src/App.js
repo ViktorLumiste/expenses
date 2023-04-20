@@ -41,11 +41,8 @@ const App = () => {
         console.log('inside',expenses)
         console.log('Dummy',DUMMY_EXPENSES)
     }
-    console.log('outside',expenses)
-    console.log('inside1',expenses[0])
-    console.log('inside2',expenses[0].date)
-    console.log('inside2',expenses[0].date.toLocaleString('en-US',{day:'2-digit'}))
-    if(expenses.length == 1){
+   if(expenses.length == 1){
+        console.log('1')
         return (
             <>
                 <div className="App">
@@ -56,7 +53,8 @@ const App = () => {
                 </div>
             </>
         );
-    } else if(expenses.length ==2){
+    } else if(expenses.length == 2){
+       console.log('2')
         return (
             <>
                 <div className="App">
@@ -68,7 +66,16 @@ const App = () => {
             </>
         );
     } else {
-        console.log("wtf")
+       console.log('3')
+        return (
+            <>
+                <div className="App">
+                    <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
+                    <ExpensesFilter onFilterChange={filterExpenseHandler}></ExpensesFilter>
+                    <p>No expenses found</p>
+                </div>
+            </>
+        )
     }
 
 
